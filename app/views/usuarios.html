@@ -1,0 +1,59 @@
+<!-- <p>Usuarios</p>
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="usuario in Usuarios">{{usuario.id}} - {{usuario.nome}}</li>
+
+</ul> -->
+<div class="row">
+    <div class="col-md-6">
+        <form role="form">
+            <div class="form-group">
+                <label>Id</label>
+                <input ng-model="id" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Nome</label>
+                <input ng-model="nome" class="form-control">
+            </div>
+            <button class="btn btn-primary" ng-click="enviar()">Enviar</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="usuario in Usuarios">
+                    <td>{{usuario.id}}</td>
+                    <td>{{usuario.nome}}</td>
+                    <td><span class="glyphicon glyphicon-remove"></span></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div ng-controller="TesteCtrl">
+    <div>
+        <textarea ng-model="descricao">{{descricao}}</textarea>
+    </div>
+    <p ng-show='naoTemQuantidadeMinimaDeCaractres()'>Minimo de 10 caracteres</p>
+    <div>
+        <button ng-disabled="naoTemQuantidadeMinimaDeCaractres()">Enviar</button>
+    </div>
+</div>
+ -->
