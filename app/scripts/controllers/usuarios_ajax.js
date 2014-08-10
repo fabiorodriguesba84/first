@@ -44,13 +44,15 @@ angular.module('firstApp')
     $scope.insert = function() {
         var novoUsuario = {
             id: $scope.id,
-            nome: $scope.nome
+            nome: $scope.nome,
+            data: $scope.data
         };
         //push insere item
         $scope.Usuarios.push(novoUsuario)
         $scope.cancel();
     }
     $scope.update = function() {
+        $scope.Usuarios[$scope.index].data = $scope.data;
         $scope.Usuarios[$scope.index].nome = $scope.nome;
         $scope.Usuarios[$scope.index].id = $scope.id;
         $scope.cancel();
@@ -60,6 +62,7 @@ angular.module('firstApp')
         $scope.form = "insert";
         $scope.id = "";
         $scope.nome = "";
+        $scope.data = "";
     };
 
 
@@ -72,6 +75,7 @@ angular.module('firstApp')
         $scope.form = "update";
         $scope.id = $scope.Usuarios[index].id;
         $scope.nome = $scope.Usuarios[index].nome;
+        $scope.data = $scope.Usuarios[index].data;
     };
 
 
