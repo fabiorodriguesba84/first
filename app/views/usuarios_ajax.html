@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
         <form role="form">
             <div class="form-group">
                 <label>Id</label>
@@ -11,28 +11,39 @@
             </div>
             <div class="form-group">
                 <label>Data</label>
-                <input ng-model="data" class="form-control">
+                <input type="date" ng-model="data" class="form-control">
             </div>
-            <button ng-show="form == 'update'" class="btn btn-primary" ng-click="update()">Editar</button>
-            <button ng-show="form == 'insert'" class="btn btn-primary" ng-click="insert()">Enviar</button>
-            <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+            <div class="form-group">
+                <label>Status</label>
+                <input type="hidden" ng-model="status" class="form-control">
+            
+                <div class="btn-group">
+                    <button type="button" class="{{btnAtivo}}" ng-click="setAtivo()">Ativo</button>
+                    <button type="button" class="{{btnInativo}}" ng-click="setInativo()">Inativo</button>
+                </div>
+            </div>
+            <div>
+                <button ng-show="form == 'update'" class="btn btn-primary" ng-click="update()">Editar</button>
+                <button ng-show="form == 'insert'" class="btn btn-success" ng-click="insert()">Adicionar</button>
+                <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+            </div>
         </form>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7">
         <div class="input-group">
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-search"></span>
             </span>
             <input class="form-control" type="search" ng-model="search" placeholder="Pesquisar…">
         </div>
-
         <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
                     <th>Data</th>
-                    <th>Ações</th>
+                    <th>Status</th>
+                    <th><center>Ações</center></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +51,7 @@
                     <td>{{usuario.id}}</td>
                     <td>{{usuario.nome}}</td>
                     <td>{{usuario.data}}</td>
+                    <td>{{usuario.status}}</td>
                     <td>
                         <button class="btn btn-default btn-mini" ng-click="edit($index)">
                             <span class="glyphicon glyphicon-pencil"></span>
@@ -47,17 +59,16 @@
                         <button class="btn btn-danger btn-mini" ng-click="delete($index)">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
-
                     </td>
                 </tr>
             </tbody>
-        </table>
 
+        </table>
         <ul class="pagination">
-            <!-- <li><a href="#">&laquo;</a></li> -->
+            <li><a href="#">&laquo;</a></li>
             <li ng-repeat="page in pages"><a ng-click="paginate({{page}})">{{page}}</a>
             </li>
-            <!-- <li><a href="#">&raquo;</a></li> -->
+            <li><a href="#">&raquo;</a></li>
         </ul>
     </div>
 </div>
